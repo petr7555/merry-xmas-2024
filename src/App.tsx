@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { DotLottieReact } from '@lottiefiles/dotlottie-react';
+import { useEffect, useState } from 'react';
+import { DotLottieReact, DotLottie } from '@lottiefiles/dotlottie-react';
 import NavigationButton from './components/NavigationButton';
 import Background from './components/Background';
 import VoucherContent from './components/VoucherContent';
@@ -7,7 +7,7 @@ import VoucherContent from './components/VoucherContent';
 const App = () => {
   const [isAnimationComplete, setIsAnimationComplete] = useState(false);
   const [showButton, setShowButton] = useState(false);
-  const [dotLottie, setDotLottie] = useState(null);
+  const [dotLottie, setDotLottie] = useState<DotLottie | null>(null);
 
   useEffect(() => {
     function onComplete() {
@@ -25,16 +25,16 @@ const App = () => {
       }
     };
   }, [dotLottie]);
-  
-  const dotLottieRefCallback = (dotLottie) => {
+
+  const dotLottieRefCallback = (dotLottie: DotLottie) => {
     setDotLottie(dotLottie);
   };
-  
+
   return (
     <div className="h-full flex flex-col items-center justify-center">
       <Background show={!isAnimationComplete} type="initial" />
       <Background show={isAnimationComplete} type="final" />
-      
+
       {!isAnimationComplete && (
         <DotLottieReact
           src="https://lottie.host/fc4ae7af-3ab8-4fea-a9f0-1069ec88e403/mzVYudx1Nc.lottie"
@@ -43,7 +43,7 @@ const App = () => {
           className="w-96 h-96"
         />
       )}
-      
+
       {isAnimationComplete && (
         <div className="flex flex-col items-center gap-12 px-4">
           <VoucherContent />

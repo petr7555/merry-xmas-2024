@@ -1,5 +1,3 @@
-import React from 'react';
-
 const VoucherContent = () => (
   <h1 className="text-4xl font-bold text-white animate-fade-in text-center">
     Voucher for 60 minutes of{' '}

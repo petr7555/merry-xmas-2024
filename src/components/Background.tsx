@@ -1,5 +1,3 @@
-import React from 'react';
-
 type BackgroundProps = {
   show: boolean;
   type: 'initial' | 'final';
