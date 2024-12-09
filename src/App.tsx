@@ -9,6 +9,12 @@ const App = () => {
   const [showButton, setShowButton] = useState(false);
   const [dotLottie, setDotLottie] = useState<DotLottie | null>(null);
 
+  function play() {
+    if (dotLottie) {
+      dotLottie.play();
+    }
+  }
+
   useEffect(() => {
     function onComplete() {
       setIsAnimationComplete(true);
@@ -34,16 +40,14 @@ const App = () => {
     <div className="h-full flex flex-col items-center justify-center">
       <Background show={!isAnimationComplete} type="initial" />
       <Background show={isAnimationComplete} type="final" />
-
       {!isAnimationComplete && (
         <DotLottieReact
           src="https://lottie.host/fc4ae7af-3ab8-4fea-a9f0-1069ec88e403/mzVYudx1Nc.lottie"
-          autoplay
           dotLottieRefCallback={dotLottieRefCallback}
           className="w-96 h-96"
+          onClick={play}
         />
       )}
-
       {isAnimationComplete && (
         <div className="flex flex-col items-center gap-12 px-4">
           <VoucherContent />
