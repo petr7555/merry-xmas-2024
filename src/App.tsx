@@ -44,7 +44,7 @@ const App = () => {
         <DotLottieReact
           src="https://lottie.host/fc4ae7af-3ab8-4fea-a9f0-1069ec88e403/mzVYudx1Nc.lottie"
           dotLottieRefCallback={dotLottieRefCallback}
-          className="w-96 h-96"
+          className="w-96 h-96 cursor-pointer"
           onClick={play}
         />
       )}
